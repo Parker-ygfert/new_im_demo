@@ -1,0 +1,8 @@
+development: &development
+  brand:
+    name: H6
+    name_cn: 黄金城
+    prefix: vg
+    # name: F6
+    # name_cn: 福鹿会
+    # prefix: ba

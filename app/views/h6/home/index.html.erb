@@ -1,0 +1,290 @@
+<header class="header container-fluid pt-3 pb-3">
+  <div class="row m-0">
+    <div class="col-1 text-center p-0">
+      <a class="logo-a" href="/">
+        <i class="icon-logo font-30"></i>
+      </a>
+    </div>
+    <div class="col-3">
+      <div class="search-input position-relative">
+        <input class="pl-2 pr-2 pt-1 pb-1 border rounded text-black-50 font-14 w-100" type="text" placeholder="搜索...">
+        <i class="icon-search text-black-50 position-absolute" style="top: 50%; right: 5px; transform: translateY(-50%);"></i>
+      </div>
+    </div>
+    <div class="col text-center font-16 font-weight-bolder">
+      <span class="now_chat_user_title"></span>
+    </div>
+  </div>
+</header>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav class="nav flex-column col-1.5 pr-2 pl-2 pt-3 text-center overflow-auto line-1">
+      <section>
+        <a class="d-block mb-4 color-ccc position-relative" href="javascript:void(0)">
+          <i class="icon-home d-block mb-1 font-16"></i>
+          <span class="icon-name font-12">Home</span>
+        </a>
+        <a class="d-block mb-4 color-ccc position-relative is-acted" href="javascript:void(0)">
+          <i class="icon-chat d-block mb-1 font-16"></i>
+          <span class="icon-name font-12">Chats</span>
+          <span class="red-dot position-absolute" style="top: 0;"></span>
+        </a>
+        <a class="d-block mb-4 color-ccc position-relative" href="javascript:void(0)">
+          <i class="icon-keyboard d-block mb-1 font-16"></i>
+          <span class="icon-name font-12">Hotkey</span>
+        </a>
+        <a class="d-block mb-4 color-ccc position-relative" href="javascript:void(0)">
+          <i class="icon-annex d-block mb-1 font-16"></i>
+          <span class="icon-name font-12">Link</span>
+        </a>
+        <a class="d-block mb-4 color-ccc position-relative" href="javascript:void(0)">
+          <i class="icon-add d-block mb-1 font-16"></i>
+          <span class="icon-name font-12">Add Chat</span>
+        </a>
+        <a class="d-block mb-4 color-ccc position-relative" href="javascript:void(0)">
+          <i class="icon-message d-block mb-1 font-16"></i>
+          <span class="icon-name font-12">Message</span>
+        </a>
+        <a class="d-block mb-4 color-ccc position-relative" href="javascript:void(0)">
+          <i class="icon-modify-user d-block mb-1 font-16"></i>
+          <span class="icon-name font-12">Modify User</span>
+        </a>
+      </section>
+      <section>
+        <a class="d-block mb-4 color-ccc" href="javascript:void(0)">
+          <i class="icon-exit d-block mb-1 font-16"></i>
+          <span class="icon-name font-12">Exit</span>
+        </a>
+        <a class="d-block mb-4 color-ccc" href="javascript:void(0)">
+          <i class="icon-cn d-block mb-1 font-16"></i>
+          <i class="icon-en d-block mb-1 font-16"></i>
+        </a>
+      </section>
+    </nav>
+    
+    <!-- 編輯彈窗 -->
+    
+    <div class="modal fade" id="editTagOrHotkey" tabindex="-1" role="dialog" aria-labelledby="editTagOrHotkey" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title edit_tag_or_hotkey_title">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <input id="editTagOrHotkeyInput" class="w-100" type="text">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button id="editTagOrHotkeyInputDoneBtn" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-3 pt-3 overflow-auto" style="background-color: #fff; height: calc(100vh - 66px);">
+      <!-- Chats -->
+      <section class="mb-3">
+        <div class="font-20 font-weight-bold mb-3">My Groups</div>
+        <a class="row p-1 show-chat-btn text-dark" data-toggle="collapse" href="#chat-group" aria-expanded="true">
+          <div class="col-8">
+            <i class="icon-arrow-right d-inline-block align-middle font-12 font-weight-bold"></i>
+            <div class="d-inline-block text-left align-middle ml-2 font-16 font-weight-bold">Chats</div>
+            <div class="red-dot d-inline-block"></div>
+          </div>
+          <div class="col-4 color-b2b3b5 font-16 text-right pl-0">999</div>
+        </a>
+        <div id="chat-group" class="chats collapse multi-collapse show">
+          <a href="javascript:void(0)" class="chat row pt-2 pb-2 pl-3 pr-3 text-dark">
+            <div class="chat-img-detail d-inline-block align-middle">
+              <div class="user-img circle" style="background-image: url(https://placem.at/people?w=100&h=100);"></div>
+            </div>
+            <div class="chat-info row d-inline-block align-middle m-0 pl-3 font-0">
+              <div class="col-8 chat-user-name chat_user_name text-wrap text-break pl-0 font-14 d-inline-block align-middle font-weight-bold">使用者1號</div>
+              <div class="col-4 font-12 d-inline-block align-middle pl-0 pr-0 color-b2b3b5 text-right">24:38</div>
+              <div class="col-12 p-0 font-14 one-line-only color-b2b3b5">
+                存款为什么不到账在线等很急呀最多可以大这么长
+                这么长够不够不够自己加12345678字很多了啊啊
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- surprise-collection -->
+      <section>
+        <a class="row p-1 show-chat-btn text-dark" data-toggle="collapse" href="#superised-group" aria-expanded="true">
+          <div class="col-8">
+            <i class="icon-arrow-right d-inline-block align-middle font-12 font-weight-bold"></i>
+            <div class="d-inline-block text-left align-middle ml-2 font-16 font-weight-bold">Superised</div>
+            <!-- <div class="red-dot d-inline-block"></div> -->
+          </div>
+          <div class="col-4 color-b2b3b5 font-16 text-right pl-0">999</div>
+        </a>
+        <div id="superised-group" class="chats collapse multi-collapse show">
+          <a href="javascript:void(0)" class="chat row pt-2 pb-2 pl-3 pr-3 text-dark">
+            <div class="chat-img-detail d-inline-block align-middle">
+              <div class="user-img circle" style="background-image: url(https://placem.at/people?w=100&h=100);"></div>
+            </div>
+            <div class="chat-info row d-inline-block align-middle m-0 pl-3 font-0">
+              <div class="col-8 chat-user-name chat_user_name text-wrap text-break pl-0 font-14 d-inline-block align-middle font-weight-bold">使用者2號</div>
+              <div class="col-4 font-12 d-inline-block align-middle pl-0 pr-0 color-b2b3b5 text-right">24:38</div>
+              <div class="col-12 p-0 font-14 text-truncate color-b2b3b5">
+                存款为什么不到账在线等很急呀最多可以大这么长
+                这么长够不够不够自己加12345678字很多了啊啊
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <div class="chat-area-bg col">
+      <div id="chatWindow" class="chat-window chat_window row font-0 pt-4 overflow-auto" style="height: calc(100vh - 66px - 174px);">
+        <!-- 用戶正常訊息 -->
+        <div class="chat-column col-12 mb-4 text-left">
+          <div class="dialog-img-detail d-inline-block align-top">
+            <div class="user-img circle" style="background-image: url(https://placem.at/people?w=100&h=100);"></div>
+          </div>
+          <div class="dialog-info d-inline-block align-top font-14 pl-3 pr-3 pt-2 pb-2 ml-3 text-left">lksldklskd</div>
+        </div>
+        <!-- 用戶輸入中 -->
+        <div class="chat-column col-12 mb-4 text-left">
+          <div class="dialog-img-detail d-inline-block align-top">
+            <div class="user-img circle" style="background-image: url(https://placem.at/people?w=100&h=100);"></div>
+          </div>
+          <div class="dialog-info d-inline-block align-top font-14 pl-3 pr-3 pt-2 pb-2 ml-3 text-wrap text-break text-left">
+            <div class="spinner-grow mr-1" role="status" style="width: .5rem; height: .5rem;">
+              <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow mr-1" role="status" style="width: .5rem; height: .5rem;">
+              <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow" role="status" style="width: .5rem; height: .5rem;">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+        </div>
+        <!-- 客服訊息 -->
+        <div class="chat-column col-12 mb-4 text-right">
+          <div class="dialog-info d-inline-block align-top font-14 pl-3 pr-3 pt-2 pb-2 mr-3 text-left white-space-initial text-break">sadpasld</div>
+          <div class="dialog-img-detail d-inline-block align-top">
+            <div class="user-img circle" style="background-image: url(https://placem.at/people?w=100&h=100);"></div>
+          </div>
+        </div>
+        <!-- 時間戳記 -->
+        <div class="time col-12 color-b2b3b5 font-14 text-center mb-4">
+          <span class="pl-2 pr-2">2020/06/19</span>
+          <span class="pl-2 pr-2">23:10</span>
+        </div>
+        <!-- 我tag了一個tag -->
+        <div class="tag-section col-12 row color-b2b3b5 font-14 text-center mb-4">
+          <div class="col-12 tag-title mb-2">
+            <span class="pl-2 pr-2">2020/06/19</span>
+            <span class="pl-2 pr-2">16:41</span>
+            <span class="pl-2 pr-2">小鱼tag</span>
+            <div class="border-bottom w-25 float-left mt-2"></div>
+            <div class="border-bottom w-25 float-right mt-2"></div>
+          </div>
+          <div class="col-12 tag-function">
+            <a href="javascript:void(0)" class="add_tag_btn d-inline-block mb-3 align-top">+ Add tag</a>
+            <div class="tag_list_middle tag_list tag-list d-inline-block align-top">
+              <div class="badge badge-basic font-14 ml-3 mb-3 border">
+                <span class="d-inline-block align-middle">取款未到帐</span>
+                <button type="button" class="close close_this_tag_btn font-14 d-inline-block align-middle ml-1" aria-label="删除标签">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="border-bottom"></div>
+          </div>
+        </div>
+        <!-- 沒有訊息時顯示 -->
+        <div class="chat-column col-12 h-100 text-center color-ccc">
+          <i class="icon-chat font-30"></i>
+          <div class="font-16">No ongoing chats</div>
+        </div>
+      </div>
+      <div class="col-12 p-0 pb-3" style="height: 174px;">
+        <div class="chat-input-box font-14 bg-white p-2 rounded mb-2 position-relative">
+          <div id="hotkeyChoose" class="hotkey-choose-list position-absolute bg-white p-2 border rounded" style="left: 30px; bottom: 115px; z-index:3; display: none;">
+            <div class="tag-choose-list-title clearfix mb-2">
+              <div class="title float-left">Add hotkey</div>
+              <a class="close_hotkey_choose_list_btn float-right text-center" href="javascript:void(0)" style="width: 30px;">&times;</a>
+            </div>
+            <div class="hotkey_choose_list list-group list-group-flush overflow-auto mb-2" style="max-height: 50vh;">
+              <div class="list-group-item list-group-item-action p-2 pl-3 pr-3 font-0">
+                <a href="javascript:void(0)" class="choose_this_btn font-14 d-inline-block align-middle" style="width: calc(100% - 35px);">预设罐头讯息01</a>
+                <div class=" d-inline-block align-middle" style="width: 35px;">
+                  <button type="button" class="close delete_this_btn font-12 d-inline-block align-middle ml-2" aria-label="删除hotkey">
+                    <i class="icon-cross"></i>
+                  </button>
+                  <button type="button" class="close edit_this_btn font-12 d-inline-block align-middle ml-1" data-type="hotkey" aria-label="编辑hotkey" data-toggle="modal" data-target="#editTagOrHotkey">
+                    <i class="icon-edit"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="search-input position-relative">
+              <input class="search_hotkey_input font-14 w-100 pr-4" type="text" placeholder="搜索或新增">
+              <i class="add_new_hotkey_to_list_btn icon-add cursor-pointer font-12 position-absolute" style="right: 5px; top: 50%; transform: translateY(-50%);"></i>
+            </div>
+          </div>
+
+          <textarea class="chat_textarea w-100 p-2 border-0" name="" id="" cols="30" rows="10" style="height: 70px;"></textarea>
+          <div class="chat-input-function clearfix">
+            <div class="custom-control custom-switch float-left mr-2">
+              <input type="checkbox" class="custom-control-input" id="privateMode">
+              <label class="custom-control-label" for="privateMode">Private</label>
+            </div>
+            <a href="javascript:void(0)" class="open_hotkey_btn float-left pl-1 pr-1 mr-1">#</a>
+            <div class="form-group float-left pl-1 pr-1 m-0">
+              <input type="file" class="form-control-file font-12" id="exampleFormControlFile1">
+            </div>
+            <a href="javascript:void(0)" class="send_message float-right btn btn-primary font-14">SEND</a>
+          </div>
+        </div>
+
+        <div class="col-12 tag-function position-relative">
+          <div id="tagChoose" class="tag-choose-list position-absolute bg-white p-2 border rounded" style="left: 100px; bottom: 0; z-index:3; display:none;">
+            <div class="tag-choose-list-title clearfix mb-2">
+              <div class="title float-left">Add tag</div>
+              <a class="close_tag_choose_list_btn float-right text-center" href="javascript:void(0)" style="width: 30px;">&times;</a>
+            </div>
+            <div class="tag_choose_list list-group list-group-flush overflow-auto mb-2" style="max-height: 50vh;">
+              <div class="list-group-item list-group-item-action p-2 pl-3 pr-3 font-0">
+                <a href="javascript:void(0)" class="choose_this_btn font-14 d-inline-block align-middle" style="width: calc(100% - 35px);">取款未到帐01</a>
+                <div class=" d-inline-block align-middle" style="width: 35px;">
+                  <button type="button" class="close delete_this_btn font-12 d-inline-block align-middle ml-2" aria-label="删除标签">
+                    <i class="icon-cross"></i>
+                  </button>
+                  <button type="button" class="close edit_this_btn font-12 d-inline-block align-middle ml-1" data-type="tag" aria-label="编辑标签" data-toggle="modal" data-target="#editTagOrHotkey">
+                    <i class="icon-edit"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="search-input position-relative">
+              <input class="search_tag_input font-14 w-100 pr-4" type="text" placeholder="搜索或新增">
+              <i class="add_new_tag_to_list_btn icon-add cursor-pointer font-12 position-absolute" style="right: 5px; top: 50%; transform: translateY(-50%);"></i>
+            </div>
+          </div>
+          <a href="javascript:void(0)" class="add_tag_btn d-inline-block align-middle" style="width: 75px;">+ Add tag</a>
+          <div class="tag_list_bottom tag_list tag-list d-inline-block align-middle overflow-auto" style="max-width: calc(100% - 80px); white-space: nowrap;">
+            <div class="badge badge-basic font-14 ml-3 border">
+              <span class="d-inline-block align-middle">取款未到帐</span>
+              <button type="button" class="close close_this_tag_btn font-14 d-inline-block align-middle ml-1" aria-label="删除标签">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div
